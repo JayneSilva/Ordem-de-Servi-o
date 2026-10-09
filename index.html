@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento de Ordem de Serviço - DINHO PAPEL E CIA</title>
+    
+</head>
+<body>
+    <div class="no-print">
+        <button class="btn" onclick="window.print()">Imprimir / Salvar PDF</button>
+    </div>
+
+    <div class="os-container">
+        <!-- Cabeçalho da Empresa -->
+        <div class="header">
+            <h1>DINHO PAPEL E CIA</h1>
+            <p>Rua Petronilia Ferraz de Camargo nº 3, Residencial Acácia, Tatuí - SP</p>
+            <p>Tel / WhatsApp: (11) 94298-8497 | E-mail: dinhopapelecia@gmail.com</p>
+        </div>
+
+        <!-- Barra de Título da OS -->
+        <div class="title-bar">
+            <h2>ORÇAMENTO DE ORDEM DE SERVIÇO</h2>
+            <div>
+                <label>Nº</label>
+                <input type="text" placeholder="0001">
+            </div>
+        </div>
+
+        <!-- Dados do Cliente e Aparelho -->
+        <div class="grid-form">
+            <div class="form-group col-3">
+                <label>Cliente</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>Telefone</label>
+                <input type="text" placeholder="(00) 00000-0000">
+            </div>
+            <div class="form-group col-2">
+                <label>Marca / Aparelho</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>RAM / HD</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>Data de Entrada</label>
+                <input type="date" id="dataEntrada">
+            </div>
+            <div class="form-group col-2">
+                <label>Nº de Patrimônio</label>
+                <input type="text">
+            </div>
+            <div class="form-group col-2">
+                <label>Acessórios Deixados</label>
+                <input type="text">
+            </div>
+            <div class="form-group col-4">
+                <label>Defeito / Reclamação Relatada</label>
+                <textarea rows="3"></textarea>
+            </div>
+        </div>
+
+        <!-- Tabela de Peças -->
+        <h3>Peças a Substituir</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;">Qtd</th>
+                    <th>Descrição da Peça</th>
+                    <th style="width: 15%;">Vl. Un. (R$)</th>
+                    <th style="width: 15%;">Total (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Linha 1 -->
+                <tr>
+                    <td><input type="number" class="input-table qtd-peca" value="1" oninput="calcularPecas()"></td>
+                    <td><input type="text" class="input-table"></td>
+                    <td><input type="number" class="input-table val-peca" value="0.00" step="0.01" oninput="calcularPecas()"></td>
+                    <td class="total-peca">0.00</td>
+                </tr>
+                <!-- Linha 2 -->
+                <tr>
+                    <td><input type="number" class="input-table qtd-peca" value="0" oninput="calcularPecas()"></td>
+                    <td><input type="text" class="input-table"></td>
+                    <td><input type="number" class="input-table val-peca" value="0.00" step="0.01" oninput="calcularPecas()"></td>
+                    <td class="total-peca">0.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Tabela de Serviços -->
+        <h3>Serviços a Executar</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;">Horas/Qtd</th>
+                    <th>Descrição do Serviço</th>
+                    <th style="width: 15%;">Total (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="input-table" value="1,00x"></td>
+                    <td><input type="text" class="input-table"></td>
+                    <td><input type="number" class="input-table val-servico" value="0.00" step="0.01" oninput="calcularTotaisFinais()"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="input-table" value="1,00x"></td>
+                    <td><input type="text" class="input-table"></td>
+                    <td><input type="number" class="input-table val-servico" value="0.00" step="0.01" oninput="calcularTotaisFinais()"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Seção de Totais e Assinatura -->
+        <div class="totals-section">
+            <div class="footer-terms">
+                <p>Para aprovar este orçamento, favor assinar e retornar ou entrar em contato conosco.</p>
+                <div class="signature-area">
